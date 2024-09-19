@@ -38,9 +38,6 @@ defineOptions({
         </td>
         <td>
           <q-btn @:click="deleteById(item.id)" color="red" icon="delete_forever" round />
-          <!-- <button @:click="deleteById(item.id)" className="">
-            Delete
-          </button> -->
         </td>
       </tr>
     </tbody>
@@ -49,43 +46,6 @@ defineOptions({
   </div>
 </template>
 
-
-<!--<template>
-  <div>
-
-<div className="">
-  <q-table className="">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Restaurant Name</th>
-        <th>Restaurant Address</th>
-        <th>Update Restaurant</th>
-        <th>Delete Restaurant</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="item in restaurants" :key="item.id" className="">
-        <th>{{item.id}}</th>
-        <td>{{item.restaurantName}}</td>
-        <td>{{item.restaurantAddress}}</td>
-        <td>
-          <RouterLink to="/" className="">
-          Update
-          </RouterLink>
-        </td>
-        <td>
-          <button @:click="deleteById(item.id)" className="">
-            Delete
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </q-table>
-</div>
-
-  </div>
-</template>-->
 
 
 <script>
