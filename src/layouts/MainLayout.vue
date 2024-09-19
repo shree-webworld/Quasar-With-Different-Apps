@@ -15,7 +15,43 @@
           Quasar App
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <!-- <div>Quasar v{{ $q.version }}</div> -->
+
+
+  <!--<div class="q-pa-md">
+    <q-btn-dropdown color="primary" label="Apps">
+      <q-list>
+        <q-item clickable v-close-popup @click="onItemClick">
+          <q-item-section>
+            <q-item-label>
+              <RouterLink to="/dictionary" >
+                Dictionary
+              </RouterLink>              
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-close-popup @click="onItemClick">
+          <q-item-section>
+            <q-item-label>
+              <RouterLink to="/quotes" >
+                Quotes
+              </RouterLink>              
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-close-popup @click="onItemClick">
+          <q-item-section>
+            <q-item-label>Articles</q-item-label>
+          </q-item-section>
+        </q-item>
+      </q-list>
+    </q-btn-dropdown>
+  </div>-->
+
+
+
       </q-toolbar>
     </q-header>
 
@@ -28,7 +64,7 @@
         <q-item-label
           header
         >
-          Essential Links
+          List of Apps
         </q-item-label>
 
         <EssentialLink
@@ -55,24 +91,24 @@ defineOptions({
 
 const linksList = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    title: 'Quotes',
+    caption: 'Inspiring Quotes',
+    icon: 'format_quote',
+    link: '/quotes'
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    title: 'Dictionary',
+    caption: 'English words dictionary',
+    icon: 'menu_book',
+    link: '/dictionary'
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    title: 'CRUD API',
+    caption: 'CRUD API with Express, PostgreSQL and Sequelize',
+    icon: 'edit_calendar',
+    link: '/crud_restaurant'
   },
-  {
+  /*{
     title: 'Forum',
     caption: 'forum.quasar.dev',
     icon: 'record_voice_over',
@@ -95,7 +131,7 @@ const linksList = [
     caption: 'Community Quasar projects',
     icon: 'favorite',
     link: 'https://awesome.quasar.dev'
-  }
+  }*/
 ]
 
 const leftDrawerOpen = ref(false)
