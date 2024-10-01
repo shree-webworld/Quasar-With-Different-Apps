@@ -1,3 +1,4 @@
+
 <script setup>
 defineOptions({
   name: 'CrudRestaurantPage'
@@ -15,6 +16,8 @@ defineOptions({
         <RouterLink to="/crud_restaurant/add_restaurant" className="">
           <q-btn color="primary" icon="add_circle" label="Add Restaurant" class="q-mb-lg"/>
         </RouterLink>
+
+         <q-btn @click="exportToExcel" color="secondary" icon="description" label="Add to Excel" class="q-ml-md q-mb-lg"/>
       </caption>
       <thead>
       <tr>
@@ -32,7 +35,7 @@ defineOptions({
         <td>{{item.restaurantName}}</td>
         <td>{{item.restaurantAddress}}</td>
         <td>
-          <RouterLink to="/crud_restaurant/add_restaurant" className="">
+          <RouterLink :to="'/crud_restaurant/update_restaurant/'+item.id" className="">
           <q-btn color="green" icon="update" round />          
           </RouterLink>
         </td>
@@ -50,6 +53,8 @@ defineOptions({
 
 <script>
 import axios from 'axios';
+import ExcelJS  from 'exceljs';
+import { saveAs } from 'file-saver';
 
 
 export default {
@@ -69,8 +74,31 @@ export default {
                 alert(`id : ${id} deleted successfully`);
                 location.reload();
               }
-            }
+            },
+
+        async exportToExcel()
+              {
+                const workbook = new ExcelJS.Workbook();
+                const worksheet = workbook.addWorksheet('Restaurant Sheet');          
+
+                worksheet.columns = [
+                  { header: 'Restaurant Name', key: 'restaurantName', width: 30 },
+                  { header: 'Restaurant Address', key: 'restaurantAddress', width: 30 },
+                ];
+
+                this.restaurants.forEach(item => {
+                      worksheet.addRow(item);
+                });
+
+                const buffer = await workbook.xlsx.writeBuffer();
+
+                const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+
+                saveAs(blob, 'restaurant_table_data.xlsx');          
+
+                }
         },
+        
         async mounted()
         {
             let restaurant_result = await axios.get("http://localhost:3000/get_restaurant");
