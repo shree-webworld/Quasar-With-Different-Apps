@@ -108,13 +108,13 @@ const linksList = [
     icon: 'edit_calendar',
     link: '/crud_restaurant'
   },
-  /*{
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
   {
+    title: 'Currency Converter',
+    caption: 'Currency Converter of different countries',
+    icon: 'monetization_on',
+    link: '/currency_converter'
+  },
+  /*{
     title: 'Twitter',
     caption: '@quasarframework',
     icon: 'rss_feed',

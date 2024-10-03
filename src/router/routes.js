@@ -11,6 +11,7 @@ const routes = [
       { path: '/crud_restaurant', component: () => import('pages/CrudRestaurantPage.vue') },
       { path: '/crud_restaurant/add_restaurant', component: () => import('components/CrudComponent/AddRestaurantPage.vue') },
       { path: '/crud_restaurant/update_restaurant/:id', component: () => import('components/CrudComponent/UpdateRestaurantPage.vue') },
+      { path: '/currency_converter', component: () => import('pages/CurrencyConverterPage.vue') },
 
 
     ]
